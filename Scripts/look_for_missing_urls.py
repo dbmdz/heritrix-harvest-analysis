@@ -41,7 +41,6 @@ def main(crawl_file_reference, crawl_file_compare, write):
 
     print('Finished')
 
-
     for response_code in sorted(missing_by_response_code):
         write('Missing by response code %s:\n' % response_code)
         for url in missing_by_response_code[response_code]:
@@ -50,7 +49,7 @@ def main(crawl_file_reference, crawl_file_compare, write):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(prog = 'look-for-missing-urls.py')
+    parser = argparse.ArgumentParser(prog='look-for-missing-urls.py')
     parser.add_argument('reference')
     parser.add_argument('compare')
     parser.add_argument('-o', '--out', required=False)

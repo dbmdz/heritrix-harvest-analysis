@@ -3,6 +3,7 @@ from __future__ import print_function
 import argparse
 import sys
 
+
 class Info:
     def __init__(self, line):
         parts = line.split()
@@ -33,7 +34,7 @@ def main(crawl_log, response_code, write=print):
         for line in src:
             info = Info(line)
             if omit_this(info, response_code):
-                continue # Omit any response code the user does not want
+                continue  # Omit any response code the user does not want
             if info.hash in resources:
                 resources[info.hash][0] = resources[info.hash][0] + 1
                 resources[info.hash][1].add(info.url)
@@ -45,7 +46,7 @@ def main(crawl_log, response_code, write=print):
     results = [resources[key] for key in resources]
 
     for data in sorted(results, key=lambda result: -result[0]):
-        count  = data[0]
+        count = data[0]
         urls = data[1]
         if count > 1:
             first = True
@@ -60,7 +61,7 @@ def main(crawl_log, response_code, write=print):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(prog = 'check-for-duplicates.py')
+    parser = argparse.ArgumentParser(prog='check-for-duplicates.py')
     parser.add_argument('crawl_log')
     parser.add_argument('-o', '--out', required=False)
     parser.add_argument('-c', '--code', required=False, type=int, help='HTTP response code to filter before checking for duplicates.')

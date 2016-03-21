@@ -24,18 +24,6 @@ def omit_this(info, response_code):
     return response_code is not None and not response_code == info.response_code
 
 
-# def main2(crawl_log, response_code, write=print):
-#     print('Parse log file for comparison ("%s")...' % crawl_log)
-
-#     with open(crawl_log, 'r') as src:
-#         resources = extract_resources(crawl_log, response_code)
-
-#     print('Write results')
-#     write_results(resources, write)
-
-#     print('Finished.')
-
-
 def main(crawl_log, response_code, write=print):
     # Store info as hash --> (occurences, urls)
     resources = dict()

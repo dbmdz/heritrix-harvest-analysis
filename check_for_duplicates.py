@@ -3,43 +3,28 @@ from __future__ import print_function
 import argparse
 import sys
 
-
-class Info:
-    def __init__(self, line):
-        parts = line.split()
-        self.timestamp = parts[0]
-        self.response_code = int(parts[1])
-        self.size = parts[2]
-        self.url = parts[3]
-        self.breadcrumb = parts[4]
-        self.referrer = parts[5]
-        self.mime = parts[6]
-        self.worker = parts[7]
-        self.fetch_timestamp = parts[8]
-        self.hash = parts[9]
-        self.source_tag = parts[10]
-        self.annotations = parts[11]
+from lib.crawllog import LogEntry
 
 
-def omit_this(info, response_code):
-    return response_code is not None and not response_code == info.response_code
+def omit_this(log_entry, response_code):
+    return response_code is not None and not response_code == log_entry.response_code
 
 
 def main(crawl_log, response_code, write=print):
-    # Store info as hash --> (occurences, urls)
+    # Store log_entry as hash --> (occurences, urls)
     resources = dict()
 
     print('Parse log file ("%s")...' % crawl_log)
     with open(crawl_log, 'r') as src:
         for line in src:
-            info = Info(line)
-            if omit_this(info, response_code):
+            log_entry = LogEntry(line)
+            if omit_this(log_entry, response_code):
                 continue  # Omit any response code the user does not want
-            if info.hash in resources:
-                resources[info.hash][0] = resources[info.hash][0] + 1
-                resources[info.hash][1].add(info.url)
+            if log_entry.hash in resources:
+                resources[log_entry.hash][0] = resources[log_entry.hash][0] + 1
+                resources[log_entry.hash][1].add(log_entry.url)
             else:
-                resources[info.hash] = [1, set([info.url])]
+                resources[log_entry.hash] = [1, set([log_entry.url])]
 
     print('Write results')
 
@@ -64,7 +49,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(prog='check-for-duplicates.py')
     parser.add_argument('crawl_log')
     parser.add_argument('-o', '--out', required=False)
-    parser.add_argument('-c', '--code', required=False, type=int, help='HTTP response code to filter before checking for duplicates.')
+    parser.add_argument('-c', '--code', required=False, type=int,
+                        help='HTTP response code to filter before checking for duplicates.')
 
     options = parser.parse_args()
 

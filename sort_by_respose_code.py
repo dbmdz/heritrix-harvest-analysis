@@ -3,22 +3,18 @@ from __future__ import print_function
 import argparse
 import sys
 
+from lib.collections import Collector
 from lib.crawllog import extract_url, extract_response_code
 
 
 def main(crawl_file, write):
-    urls = dict()
+    urls = Collector()
     with open(crawl_file, 'r') as source:
         for line in source:
-            code = extract_response_code(line)
-            url = extract_url(line)
-            if code in urls:
-                urls[code].append(url)
-            else:
-                urls[code] = [url]
+            urls.add(extract_response_code(line), extract_url(line))
 
-    for code in sorted(urls):
-        for url in sorted(urls[code]):
+    for code in sorted(urls.collections):
+        for url in sorted(urls.collections[code]):
             write("%s %s" % (code, url))
         write()
 

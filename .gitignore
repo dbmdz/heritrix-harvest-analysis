@@ -1,1 +1,5 @@
 __pycache__/
+cover/
+
+.coverage
+crawl.log

@@ -3,15 +3,7 @@ from __future__ import print_function
 import argparse
 import sys
 
-
-def extract_url(line):
-    parts = line.split()
-    return parts[3]
-
-
-def extract_response_code(line):
-    parts = line.split()
-    return parts[1]
+from lib.crawllog import extract_url, extract_response_code
 
 
 def main(crawl_file, write):

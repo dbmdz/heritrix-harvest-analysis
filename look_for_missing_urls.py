@@ -41,7 +41,7 @@ def main(crawl_file_reference, crawl_file_compare, write):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(prog='look-for-missing-urls.py')
+    parser = argparse.ArgumentParser()
     parser.add_argument('reference')
     parser.add_argument('compare')
     parser.add_argument('-o', '--out', required=False)

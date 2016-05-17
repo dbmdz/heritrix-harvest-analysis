@@ -46,7 +46,7 @@ def main(crawl_log, response_code, write=print):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(prog='check-for-duplicates.py')
+    parser = argparse.ArgumentParser()
     parser.add_argument('crawl_log')
     parser.add_argument('-o', '--out', required=False)
     parser.add_argument('-c', '--code', required=False, type=int,

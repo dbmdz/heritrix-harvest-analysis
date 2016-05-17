@@ -13,7 +13,7 @@ You can filter for URLs corresponding to certain response codes. If you don't, e
 Usage:
 
     $ python check_for_duplicates.py --help
-    usage: check-for-duplicates.py [-h] [-o OUT] [-c CODE] crawl_log
+    usage: check_for_duplicates.py [-h] [-o OUT] [-c CODE] crawl_log
 
     positional arguments:
      crawl_log
@@ -35,7 +35,7 @@ You ran two crawls with different settings and want to know how the crawl has ch
 Usage:
 
     $ python look_for_missing_urls.py --help
-    usage: look-for-missing-urls.py [-h] [-o OUT] reference compare
+    usage: look_for_missing_urls.py [-h] [-o OUT] reference compare
 
     positional arguments:
      reference

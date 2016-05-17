@@ -6,7 +6,7 @@ Large harvests are a hard task for QA without proper tools. These scripts will h
 
 ## Duplicate Checking
 
-Checks a crawl.log for duplicate files determined by hash value. This is useful if your harvest is unexpectedly big as a website might might deliver the same content under different URLs (there are for example websites delivering wrong pages instead of 404 repsonse codes).
+Checks a crawl.log for duplicate files determined by hash value. This is useful if your harvest is unexpectedly big as a website might deliver the same content under different URLs (there are for example websites delivering wrong pages instead of 404 response codes).
 
 You can filter for URLs corresponding to certain response codes. If you don't, everything is analyzed.
 
@@ -23,6 +23,10 @@ Usage:
      -o OUT, --out OUT
      -c CODE, --code CODE  HTTP response code to filter before checking for
                            duplicates.
+Examples:
+
+    $ python check_for_duplicates.py -o report.txt crawl.log
+    $ python check_for_duplicates.py -o report.txt -c 404 crawl.log
 
 ## Compare Logfiles
 
@@ -41,14 +45,18 @@ Usage:
      -h, --help         show this help message and exit
      -o OUT, --out OUT
 
+Example:
+
+    $ python look_for_missing_urls.py -o difference.txt reference.log other.log
+
 ## Sort by Response Code
 
-The script `sort_by_respose_code.py` sorts all URLs by response code.
+The script `sort_by_response_code.py` sorts all URLs by response code.
 
 Usage:
 
-    $ python sort_by_respose_code.py --help
-    usage: sort_by_respose_code.py [-h] [-o OUT] crawl_log
+    $ python sort_by_response_code.py --help
+    usage: sort_by_response_code.py [-h] [-o OUT] crawl_log
 
     positional arguments:
       crawl_log
@@ -56,3 +64,7 @@ Usage:
     optional arguments:
       -h, --help         show this help message and exit
       -o OUT, --out OUT
+
+Example:
+
+    $ python sort_by_response_code.py -o sorted.txt crawl.log

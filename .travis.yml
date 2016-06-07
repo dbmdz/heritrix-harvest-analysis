@@ -3,6 +3,9 @@ python:
 - '3.3'
 - '3.4'
 - '3.5'
-script: nosetests
+install: pip install codecov
+script:
+  - nosetests
+  - codecov --token=d40f4966-2967-447e-b0e8-3e15d1a468cf
 after_success:
   - bash <(curl -s https://codecov.io/bash)

@@ -1,4 +1,5 @@
 # Heritrix crawllog analysis
+[![Build Status](https://travis-ci.org/dbmdz/heritrix-harvest-analysis.svg?branch=master)](https://travis-ci.org/dbmdz/heritrix-harvest-analysis)
 
 ## Introduction
 

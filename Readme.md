@@ -1,5 +1,8 @@
 # Heritrix crawllog analysis
 [![Build Status](https://travis-ci.org/dbmdz/heritrix-harvest-analysis.svg?branch=master)](https://travis-ci.org/dbmdz/heritrix-harvest-analysis)
+[![codecov](https://codecov.io/gh/dbmdz/heritrix-harvest-analysis/branch/master/graph/badge.svg)](https://codecov.io/gh/dbmdz/heritrix-harvest-analysis)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ba2014ecbe0c4c01b89968385a3ff377)](https://www.codacy.com/app/marcus_2/heritrix-harvest-analysis?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dbmdz/heritrix-harvest-analysis&amp;utm_campaign=Badge_Grade)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 
 ## Introduction
 

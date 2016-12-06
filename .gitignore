@@ -3,3 +3,4 @@ cover/
 
 .coverage
 crawl.log
+*.pyc

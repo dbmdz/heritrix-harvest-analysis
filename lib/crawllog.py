@@ -23,3 +23,10 @@ class LogEntry:
         self.hash = parts[9]
         self.source_tag = parts[10]
         self.annotations = parts[11]
+
+    def domain(self):
+        parts = self.url.split('/')
+        if len(parts) > 1:
+            return parts[2]
+        else:
+            return None

@@ -71,3 +71,31 @@ Usage:
 Example:
 
     $ python sort_by_response_code.py -o sorted.txt crawl.log
+
+
+## Count URLs per domain
+
+This analyzer uses already the new unified API and count the number of URLs per domain.
+
+Usage:
+
+    $ python crawllog.py domains --help
+    usage: crawllog.py domains [-h] [--code CODE] [--out OUT] logfile
+
+    positional arguments:
+    logfile      The crawl.log to process.
+
+    optional arguments:
+    -h, --help   show this help message and exit
+    --code CODE  Only count URLs for given response code.
+    --out OUT    Only count URLs for given response code.
+
+Examples:
+
+  - count downloaded URLs per domain (that is, URLs with response code 200):
+
+        $ python crawllog.py domains --code 200 crawl.log
+
+  - count all URLs for all domains the harvester visited (meaning any response code):
+
+        $ python crawllog.py domains crawl.log

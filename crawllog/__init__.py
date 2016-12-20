@@ -34,10 +34,12 @@ def main():
                                        description='Valid subcommands: domains',
                                        help='more help')
 
-    parser_domains = subparsers.add_parser('domains')
+    parser_domains = subparsers.add_parser('urls-per-domain')
     parser_domains.add_argument('logfile', type=str, help='The crawl.log to process.')
-    parser_domains.add_argument('--code', type=int, default=None, help='Only count URLs for given response code.')
-    parser_domains.add_argument('--out', default=None, help='Only count URLs for given response code.')
+    parser_domains.add_argument('--code', type=int, default=None,
+                                help='Only count URLs for given response code.')
+    parser_domains.add_argument('--out', default=None,
+                                help='Only count URLs for given response code.')
     parser_domains.set_defaults(func=domains)
 
     args = parser.parse_args()

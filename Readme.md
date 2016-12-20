@@ -85,7 +85,7 @@ This analyzer uses already the new unified API and count the number of URLs per 
 
 Usage:
 
-    $ python crawllog.py domains --help
+    $ python crawllog.py urls-per-domain --help
     usage: crawllog.py domains [-h] [--code CODE] [--out OUT] logfile
 
     positional arguments:
@@ -100,8 +100,8 @@ Examples:
 
   - count downloaded URLs per domain (that is, URLs with response code 200):
 
-        $ python crawllog.py domains --code 200 crawl.log
+        $ python crawllog.py urls-per-domain --code 200 crawl.log
 
   - count all URLs for all domains the harvester visited (meaning any response code):
 
-        $ python crawllog.py domains crawl.log
+        $ python crawllog.py urls-per-domain crawl.log

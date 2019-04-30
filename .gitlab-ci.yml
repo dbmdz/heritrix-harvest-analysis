@@ -11,6 +11,7 @@ cache:
 
 test:
   before_script:
+    - pip install coverage
     - pip install nose
   script:
     - nosetests --with-coverage

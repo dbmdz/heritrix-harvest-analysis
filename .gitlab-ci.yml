@@ -1,0 +1,24 @@
+image: "python:3-stretch"
+
+stages:
+  - test
+  - codecov
+
+cache:
+  key: "$CI_COMMIT_SHA"
+  paths:
+    - coverage.xml
+
+test:
+  before_script:
+    - pip install nose
+  script:
+    - nosetests --with-coverage
+  stage: test
+
+codecov:
+  before_script:
+    - pip install codecov
+  script:
+    - codecov --token $CODECOV_TOKEN
+  stage: codecov

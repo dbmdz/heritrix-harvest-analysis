@@ -20,5 +20,5 @@ codecov:
   before_script:
     - pip install codecov
   script:
-    - codecov --token $CODECOV_TOKEN
+    - codecov
   stage: codecov
